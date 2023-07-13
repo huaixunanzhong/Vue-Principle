@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板编译及事件绑定</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{str}}
+        <h1>{{str}}</h1>
+        <button @click="cli">按钮</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                str:'你好，中国'
+            },
+            methods: {
+                cli(){
+                    alert('hello vue')
+                }
+            },
+        })
+    </script>
+</body>
+</html>

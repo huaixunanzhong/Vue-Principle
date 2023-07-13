@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1></h1>
+        <input type="text">
+    </div>
+    <script>
+        // 1.获取h1、input节点值
+        let oInp=document.querySelector("input")
+        let oH=document.querySelector("h1")
+        // 2.模拟一个data里面的对象
+        let obj={
+            msg:"Hello world"
+        }
+        // 3.给h1、input都给值
+        oInp.value=obj.msg
+        oH.innerText=obj.msg
+        // 5.给模拟data对象的相关属性添加set方法，达到最终的数据双向绑定
+        Object.defineProperty(obj,"msg",{
+            set:function(val){
+                oH.innerText=val
+            }
+        })
+        // 4.给input绑定监听事件，监听input输入值并修改模拟data对象的属性值，完成简易版本的数据双向绑定
+        oInp.addEventListener("input",function(e){
+            obj.msg=e.target.value
+        })
+    </script>
+</body>
+</html>
